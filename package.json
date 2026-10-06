@@ -1,0 +1,26 @@
+{
+  "name": "astro-portfolio-inquiry",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build",
+    "start": "node --env-file-if-exists=.env dist/server/entry.mjs",
+    "test": "node --test test/*.test.mjs",
+    "retry-email": "node --env-file-if-exists=.env scripts/retry-email.mjs"
+  },
+  "dependencies": {
+    "astro": "7.3.5",
+    "@astrojs/node": "11.1.6",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  },
+  "license": "MIT"
+}

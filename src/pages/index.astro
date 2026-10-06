@@ -1,0 +1,7 @@
+---
+import config from '../core/config.js';
+import {service} from '../core/service.js';
+import {formFields, detailsHtml} from '../core/views.js';
+const model=service().publicView();
+---
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content={config.description}/><title>{config.title}</title><link rel="stylesheet" href="/style.css"/><link rel="icon" href="/favicon.svg"/></head><body><header class="site-header"><a class="wordmark" href="/">{config.title}</a><a class="quiet-link" href="/admin">Operator</a></header><main><section class="hero"><div><div class="eyebrow">{config.eyebrow}</div><h1>{config.headline}</h1><p class="intro">{config.description}</p><div class="details" set:html={detailsHtml()}/>{config.projects.map(([title,description])=><article class="project"><span>Sample project</span><h3>{title}</h3><p>{description}</p></article>)}</div><form class="card" method="post" action="/api/submit"><h2>{config.button}</h2><Fragment set:html={formFields()}/><button>{config.button}</button><p class="form-note">{config.formNote}</p></form></section></main><footer>Small tools, useful work. <span>Astro</span></footer></body></html>
